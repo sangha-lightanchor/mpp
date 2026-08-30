@@ -353,7 +353,14 @@ export const services: ServiceDef[] = [
     icon: "https://amazon.lightanchor.ai/favicon.svg",
     categories: ["data", "web"],
     integration: "third-party",
-    tags: ["amazon", "ecommerce", "asin", "product-data", "listing-audit", "reviews"],
+    tags: [
+      "amazon",
+      "ecommerce",
+      "asin",
+      "product-data",
+      "listing-audit",
+      "reviews",
+    ],
     status: "active",
     docs: {
       homepage: "https://amazon.lightanchor.ai",
@@ -370,6 +377,12 @@ export const services: ServiceDef[] = [
         desc: "Unified product search: Amazon results + optional live Shopify storefront fan-out with agent-executable cart routes",
         amount: "50000",
         unitType: "search",
+      },
+      {
+        route: "POST /v1/shop/cart",
+        desc: "Build a cart on any Shopify store and return its checkout URL (payment completes on the store)",
+        amount: "50000",
+        unitType: "cart",
       },
       {
         route: "POST /v1/amazon/product",
