@@ -349,7 +349,7 @@ export const services: ServiceDef[] = [
     url: "https://amazon.lightanchor.ai",
     serviceUrl: "https://amazon.lightanchor.ai",
     description:
-      "Amazon product data and verdicts for agents: live ASIN snapshots, instant listing audits (score, ranked defects, top fixes), and evidence-linked review-insight reports. Run by Light Anchor, an agency operating real Amazon brands.",
+      "Product search and Amazon intelligence for agents: unified product search (Amazon results + live Shopify storefront-MCP hits with agent-executable cart routes), live ASIN snapshots, instant listing audits (score, ranked defects, top fixes), and evidence-linked review-insight reports. Run by Light Anchor, an agency operating real Amazon brands.",
     icon: "https://amazon.lightanchor.ai/favicon.svg",
     categories: ["data", "web"],
     integration: "third-party",
@@ -365,6 +365,12 @@ export const services: ServiceDef[] = [
     intent: "charge",
     payments: [TEMPO_PAYMENT],
     endpoints: [
+      {
+        route: "POST /v1/shop/search",
+        desc: "Unified product search: Amazon results + optional live Shopify storefront fan-out with agent-executable cart routes",
+        amount: "50000",
+        unitType: "search",
+      },
       {
         route: "POST /v1/amazon/product",
         desc: "Live product snapshot (~6s): price, availability, BSR, rating distribution, seller, images",
